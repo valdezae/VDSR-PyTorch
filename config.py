@@ -27,9 +27,9 @@ device = torch.device("cuda", 0)
 # Turning on when the image size does not change during training can speed up training
 cudnn.benchmark = True
 # Image magnification factor
-upscale_factor = 2
+upscale_factor = 4
 # Current configuration parameter method
-mode = "train"
+mode = "valid"
 # Experiment name, easy to save weights and log files
 exp_name = "vdsr_baseline"
 
@@ -68,6 +68,6 @@ if mode == "train":
 if mode == "valid":
     # Test data address
     sr_dir = f"results/test/{exp_name}"
-    hr_dir = f"data/Set5/GTmod12"
+    hr_dir = f"data/miniMIAS"
 
     model_path = f"results/{exp_name}/best.pth.tar"
